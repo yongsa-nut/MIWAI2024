@@ -1,0 +1,361 @@
+perspective,item,Blender_1,Blender_2,Coffee maker_1,Coffee maker_2,Desk lamp_1,Desk lamp_2,Kettle_1,Kettle_2,Photo Frame_1,Photo Frame_2,Radio_1,Radio_2,Sandwich maker_1,Sandwich maker_2,Sleeping bag_1,Sleeping bag_2,Table Fan_1,Table Fan_2,Toaster_1,Toaster_2,choices_1,choices_2,choices_diff,decision,forced_decision,prior,Chicken wings_1,Chicken wings_2,French fries_1,French fries_2,Fried chicken_1,Fried chicken_2,Grilled Cheeses_1,Grilled Cheeses_2,Hamburgers_1,Hamburgers_2,Mashed potatoes_1,Mashed potatoes_2,Pasta_1,Pasta_2,Pizza_1,Pizza_2,Salad_1,Salad_2,Sushi_1,Sushi_2,Apple_1,Apple_2,Banana_1,Banana_2,Cherry_1,Cherry_2,Kiwi_1,Kiwi_2,Mango_1,Mango_2,Orange_1,Orange_2,Papaya_1,Papaya_2,Pineapple_1,Pineapple_2,Strawberry_1,Strawberry_2,Watermelon_1,Watermelon_2
+self,object,6,5,8,7,7,6,7,6,5,4,6,5,7,6,8,7,7,6,7,6,Kettle,Desk lamp,0,Desk lamp,Kettle,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,5,6,6,7,7,8,8,7,6,7,7,Kettle,Desk lamp,0,Desk lamp,Kettle,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,5,8,7,7,6,7,5,5,4,6,5,7,6,8,7,7,6,7,6,Kettle,Desk lamp,0,Desk lamp,Desk lamp,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,6,8,8,7,7,7,5,5,4,6,6,7,7,8,7,7,5,7,6,Kettle,Desk lamp,0,Desk lamp,Desk lamp,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,4,6,5,7,7,8,6,7,7,7,7,Sandwich maker,Desk lamp,0,Desk lamp,Sandwich maker,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,4,6,5,7,7,8,6,7,5,7,7,Sandwich maker,Desk lamp,0,Desk lamp,Sandwich maker,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,5,8,7,7,6,7,5,5,4,6,5,7,6,8,7,7,6,7,6,Sandwich maker,Desk lamp,0,Desk lamp,Desk lamp,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,4,6,5,7,6,8,7,7,5,7,6,Sandwich maker,Desk lamp,0,Desk lamp,Desk lamp,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,5,8,7,7,6,7,6,5,4,6,5,7,6,8,7,7,6,7,6,Sandwich maker,Kettle,0,Kettle,Sandwich maker,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,4,6,5,7,7,8,6,7,5,7,7,Sandwich maker,Kettle,0,Kettle,Sandwich maker,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,4,6,5,7,6,8,7,7,6,7,6,Sandwich maker,Kettle,0,Kettle,Kettle,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,4,6,5,7,6,8,7,7,5,7,6,Sandwich maker,Kettle,0,Kettle,Kettle,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,5,8,7,7,6,7,6,5,4,6,5,7,6,8,7,7,6,7,6,Sleeping bag,Coffee maker,0,Coffee maker,Sleeping bag,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,5,6,6,7,7,8,8,7,6,7,7,Sleeping bag,Coffee maker,0,Sleeping bag,Sleeping bag,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,5,8,7,7,6,7,6,5,4,6,5,7,6,8,7,7,6,7,6,Sleeping bag,Coffee maker,0,Coffee maker,Coffee maker,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,5,6,6,7,7,8,8,7,6,7,7,Sleeping bag,Coffee maker,0,Sleeping bag,Coffee maker,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,5,8,7,7,6,7,6,5,4,6,5,7,6,8,7,7,6,7,6,Table Fan,Desk lamp,0,Desk lamp,Table Fan,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,4,6,5,7,7,8,6,7,7,7,7,Table Fan,Desk lamp,0,Desk lamp,Table Fan,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,5,8,7,7,6,7,6,5,4,6,5,7,6,8,7,7,6,7,6,Table Fan,Desk lamp,0,Desk lamp,Desk lamp,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,4,6,5,7,6,8,7,7,5,7,6,Table Fan,Desk lamp,0,Desk lamp,Desk lamp,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,5,8,7,7,6,7,6,5,4,6,5,7,6,8,7,7,6,7,6,Sleeping bag,Photo Frame,3,Sleeping bag,Sleeping bag,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,5,6,6,7,7,8,8,7,6,7,7,Sleeping bag,Photo Frame,3,Sleeping bag,Sleeping bag,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,6,8,7,7,5,7,6,5,4,6,5,7,6,8,7,7,6,7,6,Sleeping bag,Photo Frame,3,Sleeping bag,Photo Frame,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,5,6,6,7,7,8,8,7,6,7,7,Sleeping bag,Photo Frame,3,Sleeping bag,Photo Frame,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,6,8,8,7,7,7,7,5,5,6,6,7,7,8,8,7,7,7,7,Coffee maker,Photo Frame,3,Coffee maker,Coffee maker,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,4,6,5,7,6,8,7,7,5,7,6,Coffee maker,Photo Frame,3,Coffee maker,Coffee maker,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,5,6,6,7,7,8,8,7,7,7,7,Coffee maker,Photo Frame,3,Coffee maker,Photo Frame,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,5,6,4,7,6,8,7,7,5,7,6,Coffee maker,Photo Frame,3,Coffee maker,Photo Frame,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,4,6,5,7,7,8,6,7,7,7,7,Toaster,Photo Frame,2,Toaster,Toaster,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,5,6,6,7,7,8,7,7,6,7,7,Toaster,Photo Frame,2,Toaster,Toaster,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,5,8,7,7,6,7,5,5,4,6,5,7,6,8,7,7,6,7,5,Toaster,Photo Frame,2,Toaster,Photo Frame,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,5,6,6,7,7,8,8,7,6,7,7,Toaster,Photo Frame,2,Toaster,Photo Frame,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,5,8,7,7,6,7,6,5,4,6,5,7,6,8,7,7,6,7,6,Table Fan,Photo Frame,2,Table Fan,Table Fan,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,4,6,5,7,7,8,6,7,7,7,7,Table Fan,Photo Frame,2,Table Fan,Table Fan,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,5,8,7,7,6,7,5,5,4,6,5,7,6,8,7,7,6,7,6,Table Fan,Photo Frame,2,Table Fan,Photo Frame,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,7,8,8,7,6,7,7,5,5,6,6,7,7,8,8,7,6,7,7,Table Fan,Photo Frame,2,Table Fan,Photo Frame,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,5,8,7,7,6,7,6,5,4,6,5,7,6,8,7,7,6,7,6,Sleeping bag,Radio,2,Sleeping bag,Sleeping bag,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,6,8,7,7,5,7,6,5,4,6,5,7,6,8,8,7,5,7,6,Sleeping bag,Radio,2,Sleeping bag,Sleeping bag,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,5,8,7,7,6,7,6,5,4,6,5,7,6,8,7,7,6,7,6,Sleeping bag,Radio,2,Sleeping bag,Radio,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,object,6,6,8,7,7,5,7,6,5,4,6,5,7,6,8,7,7,5,7,6,Sleeping bag,Radio,2,Sleeping bag,Radio,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Chicken wings,0,Fried chicken,Fried chicken,with,8,7,7,8,8,9,6,6,7,7,5,5,7,7,9,9,4,4,7,8,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Chicken wings,0,Fried chicken,Fried chicken,without,8,8,7,7,8,9,6,6,7,7,5,5,7,7,9,9,4,4,7,8,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Chicken wings,0,Fried chicken,Chicken wings,with,8,7,7,8,8,7,6,6,7,7,5,5,7,7,9,9,4,4,7,8,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Chicken wings,0,Fried chicken,Chicken wings,without,8,8,7,7,8,7,6,6,7,7,5,5,7,7,9,9,4,4,7,8,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Hamburgers,French fries,0,Hamburgers,Hamburgers,with,8,7,7,6,8,8,6,5,7,7,5,4,7,6,9,9,4,3,7,8,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Hamburgers,French fries,0,Hamburgers,Hamburgers,without,8,8,7,7,8,8,6,6,7,9,5,5,7,7,9,9,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Hamburgers,French fries,0,Hamburgers,French fries,with,8,7,7,8,8,7,6,6,7,7,5,5,7,7,9,9,4,4,7,6,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Hamburgers,French fries,0,Hamburgers,French fries,without,8,8,7,7,8,8,6,6,7,7,5,5,7,7,9,9,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Pasta,French fries,0,Pasta,Pasta,with,8,7,7,6,8,7,6,5,7,7,5,5,7,6,9,8,4,4,7,6,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Pasta,French fries,0,Pasta,Pasta,without,8,8,7,7,8,8,6,6,7,7,5,5,7,7,9,9,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Pasta,French fries,0,Pasta,French fries,with,8,7,7,8,8,7,6,6,7,7,5,5,7,6,9,9,4,4,7,8,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Pasta,French fries,0,Pasta,French fries,without,8,8,7,7,8,8,6,6,7,7,5,5,7,7,9,9,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Pasta,Hamburgers,0,Pasta,Pasta,with,8,7,7,8,8,7,6,6,7,7,5,5,7,7,9,9,4,4,7,6,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Pasta,Hamburgers,0,Pasta,Pasta,without,8,8,7,7,8,8,6,6,7,7,5,5,7,9,9,10,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Pasta,Hamburgers,0,Pasta,Hamburgers,with,8,7,7,8,8,7,6,6,7,7,5,5,7,6,9,9,4,4,7,8,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Pasta,Hamburgers,0,Pasta,Hamburgers,without,8,8,7,7,8,8,6,6,7,9,5,5,7,7,9,9,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Sushi,French fries,0,Sushi,Sushi,with,8,7,7,6,8,8,6,5,7,7,5,4,7,6,9,9,4,3,7,8,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Sushi,French fries,0,Sushi,Sushi,without,8,8,7,7,8,8,6,6,7,7,5,5,7,7,9,9,4,6,7,8,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Sushi,French fries,0,Sushi,French fries,with,8,7,7,8,8,7,6,6,7,7,5,5,7,7,9,9,4,4,7,6,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Sushi,French fries,0,Sushi,French fries,without,8,8,7,7,8,8,6,6,7,7,5,5,7,7,9,9,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Pizza,Salad,5,Pizza,Pizza,with,8,7,7,8,8,7,6,6,7,7,5,5,7,7,9,9,4,4,7,6,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Pizza,Salad,5,Pizza,Pizza,without,8,8,7,7,8,8,6,6,7,7,5,5,7,7,9,9,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Pizza,Salad,5,Pizza,Salad,with,8,8,7,7,8,8,6,6,7,7,5,5,7,7,9,9,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Pizza,Salad,5,Pizza,Salad,without,8,8,7,7,8,8,6,6,7,7,5,5,7,7,9,9,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Pizza,Mashed potatoes,4,Pizza,Pizza,with,8,7,7,8,8,7,6,6,7,7,5,5,7,7,9,9,4,4,7,8,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Pizza,Mashed potatoes,4,Pizza,Pizza,without,8,8,7,7,8,8,6,6,7,7,5,5,7,7,9,9,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Pizza,Mashed potatoes,4,Pizza,Mashed potatoes,with,8,8,7,7,8,8,6,6,7,7,5,5,7,7,9,9,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Pizza,Mashed potatoes,4,Pizza,Mashed potatoes,without,8,8,7,7,8,8,6,6,7,7,5,5,7,7,9,9,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Salad,4,Fried chicken,Fried chicken,with,8,7,7,8,8,9,6,6,7,7,5,5,7,7,9,9,4,4,7,8,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Salad,4,Fried chicken,Fried chicken,without,8,8,7,7,8,9,6,6,7,7,5,5,7,7,9,8,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Salad,4,Fried chicken,Salad,with,8,7,7,6,8,8,6,5,7,7,5,4,7,6,9,9,4,3,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Salad,4,Fried chicken,Salad,without,8,8,7,7,8,9,6,6,7,7,5,5,7,8,9,9,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Chicken wings,Salad,4,Chicken wings,Chicken wings,with,8,7,7,8,8,7,6,6,7,7,5,5,7,7,9,9,4,4,7,8,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Chicken wings,Salad,4,Chicken wings,Chicken wings,without,8,8,7,7,8,8,6,6,7,7,5,5,7,7,9,9,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Chicken wings,Salad,4,Chicken wings,Salad,with,8,7,7,8,8,8,6,6,7,7,5,5,7,7,9,9,4,6,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Chicken wings,Salad,4,Chicken wings,Salad,without,8,8,7,7,8,8,6,6,7,7,5,5,7,7,9,9,4,4,7,7,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Sushi,Salad,3,Sushi,Sushi,with,8,7,7,8,8,7,6,6,7,7,5,5,7,7,9,9,4,4,7,8,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Sushi,Salad,3,Sushi,Sushi,without,8,8,7,7,8,8,6,6,7,7,5,5,7,7,9,9,4,4,7,8,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Sushi,Salad,3,Sushi,Salad,with,8,7,7,8,8,7,6,6,7,7,5,5,7,7,9,9,4,6,7,8,,,,,,,,,,,,,,,,,,,,
+self,food,,,,,,,,,,,,,,,,,,,,,Sushi,Salad,3,Sushi,Salad,without,8,8,7,7,8,8,6,6,7,7,5,5,7,7,9,9,4,4,7,6,,,,,,,,,,,,,,,,,,,,
+self,fruit,,,,,,,,,,,,,,,,,,,,,Orange,Apple,0,Apple,Orange,with,,,,,,,,,,,,,,,,,,,,,8,-1,7,-1,9,-1,6,-1,10,-1,8,-1,5,-1,9,-1,10,-1,9,-1
+self,fruit,,,,,,,,,,,,,,,,,,,,,Orange,Apple,0,Orange,Orange,without,,,,,,,,,,,,,,,,,,,,,8,8,7,7,9,6,6,5,10,9,8,8,5,4,9,7,10,9,9,10
+self,fruit,,,,,,,,,,,,,,,,,,,,,Orange,Apple,0,Apple,Apple,with,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,5,10,9,8,7,5,4,9,8,10,9,9,8
+self,fruit,,,,,,,,,,,,,,,,,,,,,Orange,Apple,0,Orange,Apple,without,,,,,,,,,,,,,,,,,,,,,8,8,7,7,9,9,6,6,10,10,8,7,5,5,9,8,10,9,9,10
+self,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Cherry,0,Cherry,Pineapple,with,,,,,,,,,,,,,,,,,,,,,8,-1,7,-1,9,-1,6,-1,10,-1,8,-1,5,-1,9,-1,10,-1,9,-1
+self,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Cherry,0,Pineapple,Pineapple,without,,,,,,,,,,,,,,,,,,,,,8,8,7,7,9,6,6,7,10,9,8,8,5,5,9,7,10,9,9,10
+self,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Cherry,0,Cherry,Cherry,with,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,7,10,9,8,8,5,5,9,8,10,9,9,9
+self,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Cherry,0,Pineapple,Cherry,without,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,7,10,9,8,7,5,5,9,8,10,9,9,10
+self,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Cherry,0,Watermelon,Watermelon,with,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,7,10,9,8,8,5,5,9,8,10,9,9,9
+self,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Cherry,0,Watermelon,Watermelon,without,,,,,,,,,,,,,,,,,,,,,8,8,7,7,9,6,6,5,10,9,8,7,5,4,9,8,10,9,9,10
+self,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Cherry,0,Watermelon,Cherry,with,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,7,10,9,8,8,5,5,9,8,10,9,9,9
+self,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Cherry,0,Watermelon,Cherry,without,,,,,,,,,,,,,,,,,,,,,8,8,7,7,9,9,6,6,10,10,8,8,5,5,9,7,10,9,9,8
+self,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Pineapple,0,Watermelon,Watermelon,with,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,5,10,9,8,7,5,4,9,8,10,9,9,10
+self,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Pineapple,0,Watermelon,Watermelon,without,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,7,10,9,8,7,5,5,9,8,10,9,9,8
+self,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Pineapple,0,Watermelon,Pineapple,with,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,7,10,9,8,8,5,5,9,8,10,9,9,8
+self,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Pineapple,0,Watermelon,Pineapple,without,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,5,10,9,8,7,5,4,9,8,10,9,9,7
+self,fruit,,,,,,,,,,,,,,,,,,,,,Apple,Banana,1,Banana,Apple,with,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,7,10,9,8,8,5,5,9,8,10,9,9,9
+self,fruit,,,,,,,,,,,,,,,,,,,,,Apple,Banana,1,Apple,Apple,without,,,,,,,,,,,,,,,,,,,,,8,8,7,7,9,9,6,6,10,10,8,8,5,5,9,7,10,9,9,10
+self,fruit,,,,,,,,,,,,,,,,,,,,,Apple,Banana,1,Banana,Banana,with,,,,,,,,,,,,,,,,,,,,,8,7,7,8,9,9,6,6,10,10,8,8,5,5,9,9,10,10,9,9
+self,fruit,,,,,,,,,,,,,,,,,,,,,Apple,Banana,1,Apple,Banana,without,,,,,,,,,,,,,,,,,,,,,8,8,7,7,9,9,6,6,10,10,8,8,5,5,9,7,10,9,9,10
+self,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Papaya,4,Watermelon,Watermelon,with,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,7,10,9,8,8,5,5,9,8,10,9,9,9
+self,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Papaya,4,Watermelon,Watermelon,without,,,,,,,,,,,,,,,,,,,,,8,8,7,7,9,9,6,6,10,10,8,8,5,5,9,7,10,9,9,10
+self,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Papaya,4,Watermelon,Papaya,with,,,,,,,,,,,,,,,,,,,,,8,-1,7,-1,9,-1,6,-1,10,-1,8,-1,5,-1,9,-1,10,-1,9,-1
+self,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Papaya,4,Watermelon,Papaya,without,,,,,,,,,,,,,,,,,,,,,8,8,7,7,9,9,6,6,10,10,8,8,5,5,9,7,10,9,9,10
+self,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Papaya,4,Pineapple,Pineapple,with,,,,,,,,,,,,,,,,,,,,,8,-1,7,-1,9,-1,6,-1,10,-1,8,-1,5,-1,9,-1,10,-1,9,-1
+self,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Papaya,4,Pineapple,Pineapple,without,,,,,,,,,,,,,,,,,,,,,8,8,7,7,9,9,6,6,10,10,8,8,5,5,9,9,10,10,9,9
+self,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Papaya,4,Pineapple,Papaya,with,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,5,10,9,8,7,5,4,9,8,10,9,9,10
+self,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Papaya,4,Pineapple,Papaya,without,,,,,,,,,,,,,,,,,,,,,8,8,7,7,9,9,6,6,10,10,8,8,5,5,9,7,10,9,9,10
+self,fruit,,,,,,,,,,,,,,,,,,,,,Cherry,Papaya,4,Cherry,Cherry,with,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,7,10,9,8,8,5,5,9,8,10,9,9,9
+self,fruit,,,,,,,,,,,,,,,,,,,,,Cherry,Papaya,4,Cherry,Cherry,without,,,,,,,,,,,,,,,,,,,,,8,8,7,7,9,9,6,6,10,10,8,8,5,5,9,9,10,10,9,9
+self,fruit,,,,,,,,,,,,,,,,,,,,,Cherry,Papaya,4,Cherry,Papaya,with,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,5,10,9,8,7,5,4,9,8,10,9,9,10
+self,fruit,,,,,,,,,,,,,,,,,,,,,Cherry,Papaya,4,Cherry,Papaya,without,,,,,,,,,,,,,,,,,,,,,8,8,7,7,9,6,6,5,10,9,8,7,5,4,9,8,10,9,9,10
+self,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Kiwi,3,Watermelon,Watermelon,with,,,,,,,,,,,,,,,,,,,,,8,-1,7,-1,9,-1,6,-1,10,-1,8,-1,5,-1,9,-1,10,-1,9,-1
+self,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Kiwi,3,Watermelon,Watermelon,without,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,7,10,9,8,7,5,5,9,8,10,9,9,8
+self,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Kiwi,3,Watermelon,Kiwi,with,,,,,,,,,,,,,,,,,,,,,8,-1,7,-1,9,-1,6,-1,10,-1,8,-1,5,-1,9,-1,10,-1,9,-1
+self,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Kiwi,3,Watermelon,Kiwi,without,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,7,10,9,8,7,5,5,9,8,10,9,9,8
+self,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Kiwi,3,Pineapple,Pineapple,with,,,,,,,,,,,,,,,,,,,,,8,-1,7,-1,9,-1,6,-1,10,-1,8,-1,5,-1,9,-1,10,-1,9,-1
+self,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Kiwi,3,Pineapple,Pineapple,without,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,5,10,9,8,7,5,4,9,8,10,9,9,10
+self,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Kiwi,3,Pineapple,Kiwi,with,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,7,10,9,8,8,5,5,9,8,10,9,9,9
+self,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Kiwi,3,Pineapple,Kiwi,without,,,,,,,,,,,,,,,,,,,,,8,7,7,6,9,8,6,7,10,9,8,7,5,5,9,8,10,9,9,10
+roleplay,object,7,8,8,9,6,5,5,4,4,3,3,2,7,7,6,6,9,8,7,7,Sandwich maker,Blender,0,Blender,Sandwich maker,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,8,8,9,6,6,5,7,4,4,3,5,7,8,6,7,9,6,7,7,Sandwich maker,Blender,0,Blender,Sandwich maker,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,8,8,9,6,5,5,4,4,3,3,2,7,7,6,6,9,8,7,7,Sandwich maker,Blender,0,Blender,Blender,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,8,8,9,6,6,5,7,4,5,3,4,7,7,6,6,9,8,7,7,Sandwich maker,Blender,0,Blender,Blender,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,9,9,7,6,Toaster,Blender,0,Blender,Toaster,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,7,8,8,6,5,5,6,4,4,3,5,7,7,6,6,9,7,7,8,Toaster,Blender,0,Blender,Toaster,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,8,8,9,6,5,5,4,4,3,3,2,7,7,6,6,9,8,7,7,Toaster,Blender,0,Blender,Blender,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,8,8,9,6,6,5,7,4,5,3,4,7,7,6,6,9,8,7,7,Toaster,Blender,0,Blender,Blender,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,9,9,7,6,Toaster,Sandwich maker,0,Sandwich maker,Toaster,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,8,8,9,6,6,5,7,4,5,3,4,7,7,6,6,9,8,7,7,Toaster,Sandwich maker,0,Toaster,Toaster,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,6,9,9,7,7,Toaster,Sandwich maker,0,Sandwich maker,Sandwich maker,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,7,8,8,6,5,5,6,4,4,3,5,7,7,6,6,9,7,7,6,Toaster,Sandwich maker,0,Toaster,Sandwich maker,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,8,8,9,6,5,5,4,4,3,3,2,7,7,6,6,9,8,7,7,Blender,Desk lamp,1,Blender,Blender,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,8,8,9,6,6,5,7,4,5,3,4,7,7,6,6,9,8,7,7,Blender,Desk lamp,1,Blender,Blender,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,9,9,7,6,Blender,Desk lamp,1,Blender,Desk lamp,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,8,8,9,6,7,5,6,4,5,3,4,7,7,6,6,9,8,7,7,Blender,Desk lamp,1,Blender,Desk lamp,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,8,8,9,6,5,5,4,4,3,3,2,7,7,6,6,9,8,7,7,Blender,Sleeping bag,1,Blender,Blender,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,8,8,7,6,5,5,6,4,4,3,5,7,7,6,3,9,6,7,7,Blender,Sleeping bag,1,Blender,Blender,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,9,9,7,6,Blender,Sleeping bag,1,Blender,Sleeping bag,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,8,8,9,6,6,5,7,4,5,3,4,7,8,6,7,9,6,7,7,Blender,Sleeping bag,1,Blender,Sleeping bag,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,9,9,7,6,Table Fan,Radio,6,Table Fan,Table Fan,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,7,8,8,6,6,5,5,4,4,3,3,7,7,6,5,9,9,7,6,Table Fan,Radio,6,Table Fan,Table Fan,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,9,9,7,6,Table Fan,Radio,6,Table Fan,Radio,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,7,8,8,6,6,5,7,4,5,3,6,7,7,6,4,9,8,7,7,Table Fan,Radio,6,Table Fan,Radio,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,9,9,7,6,Table Fan,Photo Frame,5,Table Fan,Table Fan,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,7,8,8,6,6,5,5,4,4,3,6,7,7,6,5,9,9,7,7,Table Fan,Photo Frame,5,Table Fan,Table Fan,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,9,9,7,6,Table Fan,Photo Frame,5,Table Fan,Photo Frame,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,7,8,8,6,6,5,5,4,4,3,6,7,7,6,5,9,9,7,7,Table Fan,Photo Frame,5,Table Fan,Photo Frame,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,9,9,7,6,Coffee maker,Radio,5,Coffee maker,Coffee maker,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,7,8,9,6,6,5,5,4,4,3,3,7,8,6,7,9,8,7,6,Coffee maker,Radio,5,Coffee maker,Coffee maker,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,9,9,7,6,Coffee maker,Radio,5,Coffee maker,Radio,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,7,8,8,6,6,5,5,4,4,3,3,7,7,6,9,9,8,7,6,Coffee maker,Radio,5,Coffee maker,Radio,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,9,9,7,6,Toaster,Radio,4,Toaster,Toaster,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,7,8,8,6,5,5,6,4,4,3,3,7,7,6,5,9,6,7,7,Toaster,Radio,4,Toaster,Toaster,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,9,9,7,6,Toaster,Radio,4,Toaster,Radio,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,7,8,8,6,6,5,5,4,4,3,7,7,6,6,5,9,7,7,6,Toaster,Radio,4,Toaster,Radio,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,9,9,7,6,Table Fan,Kettle,4,Table Fan,Table Fan,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,8,8,7,6,6,5,4,4,5,3,6,7,7,6,5,9,9,7,7,Table Fan,Kettle,4,Table Fan,Table Fan,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,9,9,7,6,Table Fan,Kettle,4,Table Fan,Kettle,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,object,7,7,8,8,6,6,5,5,4,4,3,3,7,7,6,6,9,9,7,7,Table Fan,Kettle,4,Table Fan,Kettle,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Hamburgers,Chicken wings,0,Hamburgers,Hamburgers,with,8,7,7,8,9,6,6,5,8,7,5,4,7,6,9,9,4,3,6,5,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Hamburgers,Chicken wings,0,Hamburgers,Hamburgers,without,8,8,7,7,9,6,6,5,8,9,5,4,7,7,9,10,4,3,6,2,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Hamburgers,Chicken wings,0,Hamburgers,Chicken wings,with,8,7,7,8,9,6,6,5,8,7,5,4,7,6,9,9,4,3,6,5,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Hamburgers,Chicken wings,0,Hamburgers,Chicken wings,without,8,8,7,7,9,6,6,5,8,7,5,4,7,6,9,9,4,3,6,5,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Pasta,French fries,0,French fries,Pasta,with,8,7,7,6,9,8,6,5,8,7,5,4,7,6,9,9,4,3,6,5,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Pasta,French fries,0,French fries,Pasta,without,8,8,7,7,9,7,6,6,8,8,5,5,7,9,9,10,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Pasta,French fries,0,French fries,French fries,with,8,7,7,8,9,9,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Pasta,French fries,0,French fries,French fries,without,8,8,7,7,9,7,6,6,8,8,5,5,7,6,9,9,4,4,6,5,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Pizza,Fried chicken,0,Pizza,Pizza,with,8,7,7,8,9,9,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Pizza,Fried chicken,0,Pizza,Pizza,without,8,8,7,7,9,6,6,5,8,7,5,4,7,6,9,9,4,3,6,5,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Pizza,Fried chicken,0,Pizza,Fried chicken,with,8,7,7,6,9,8,6,5,8,7,5,4,7,6,9,8,4,3,6,5,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Pizza,Fried chicken,0,Pizza,Fried chicken,without,8,8,7,7,9,9,6,6,8,7,5,5,7,7,9,8,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Chicken wings,French fries,1,Chicken wings,Chicken wings,with,8,7,7,8,9,9,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Chicken wings,French fries,1,Chicken wings,Chicken wings,without,8,8,7,7,9,6,6,5,8,7,5,4,7,6,9,9,4,3,6,5,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Chicken wings,French fries,1,Chicken wings,French fries,with,8,7,7,8,9,9,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Chicken wings,French fries,1,Chicken wings,French fries,without,8,8,7,7,9,6,6,5,8,9,5,4,7,7,9,10,4,3,6,2,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Chicken wings,Pasta,1,Chicken wings,Chicken wings,with,8,7,7,8,9,9,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Chicken wings,Pasta,1,Chicken wings,Chicken wings,without,8,8,7,7,9,6,6,5,8,7,5,4,7,6,9,9,4,3,6,5,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Chicken wings,Pasta,1,Chicken wings,Pasta,with,8,7,7,8,9,6,6,5,8,7,5,4,7,8,9,9,4,3,6,5,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Chicken wings,Pasta,1,Chicken wings,Pasta,without,8,8,7,7,9,6,6,5,8,7,5,4,7,9,9,10,4,3,6,2,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Pizza,Salad,5,Pizza,Pizza,with,8,7,7,8,9,9,6,6,8,8,5,5,7,7,9,9,4,3,6,5,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Pizza,Salad,5,Pizza,Pizza,without,8,8,7,7,9,8,6,6,8,9,5,5,7,7,9,10,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Pizza,Salad,5,Pizza,Salad,with,8,8,7,7,9,9,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Pizza,Salad,5,Pizza,Salad,without,8,8,7,7,9,6,6,5,8,7,5,4,7,6,9,9,4,3,6,5,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Salad,5,Fried chicken,Fried chicken,with,8,7,7,8,9,9,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Salad,5,Fried chicken,Fried chicken,without,8,8,7,7,9,9,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Salad,5,Fried chicken,Salad,with,8,7,7,8,9,9,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Salad,5,Fried chicken,Salad,without,8,8,7,7,9,9,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Pizza,Mashed potatoes,4,Pizza,Pizza,with,8,7,7,8,9,9,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Pizza,Mashed potatoes,4,Pizza,Pizza,without,8,8,7,7,9,7,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Pizza,Mashed potatoes,4,Pizza,Mashed potatoes,with,8,8,7,7,9,9,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Pizza,Mashed potatoes,4,Pizza,Mashed potatoes,without,8,8,7,7,9,7,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Hamburgers,Salad,4,Hamburgers,Hamburgers,with,8,7,7,8,9,9,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Hamburgers,Salad,4,Hamburgers,Hamburgers,without,8,8,7,7,9,8,6,6,8,9,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Hamburgers,Salad,4,Hamburgers,Salad,with,8,8,7,7,9,9,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Hamburgers,Salad,4,Hamburgers,Salad,without,8,8,7,7,9,8,6,6,8,9,5,5,7,7,9,9,4,6,6,7,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Mashed potatoes,4,Fried chicken,Fried chicken,with,8,7,7,8,9,9,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Mashed potatoes,4,Fried chicken,Fried chicken,without,8,8,7,7,9,9,6,6,8,7,5,5,7,6,9,8,4,4,6,5,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Mashed potatoes,4,Fried chicken,Mashed potatoes,with,8,7,7,8,9,9,6,6,8,8,5,5,7,7,9,9,4,4,6,6,,,,,,,,,,,,,,,,,,,,
+roleplay,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Mashed potatoes,4,Fried chicken,Mashed potatoes,without,8,8,7,7,9,9,6,6,8,7,5,5,7,6,9,9,4,4,6,5,,,,,,,,,,,,,,,,,,,,
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Banana,0,Banana,Pineapple,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Banana,0,Pineapple,Pineapple,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,8,4,4,8,9,9,10,10,9
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Banana,0,Banana,Banana,with,,,,,,,,,,,,,,,,,,,,,7,8,8,7,6,6,5,5,9,9,10,8,4,4,8,7,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Banana,0,Pineapple,Banana,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,7,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Mango,0,Mango,Strawberry,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Mango,0,Mango,Strawberry,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,7,4,4,8,8,9,10,10,9
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Mango,0,Mango,Mango,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Mango,0,Mango,Mango,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,7,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Apple,Cherry,1,Apple,Apple,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Apple,Cherry,1,Cherry,Apple,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,8,4,4,8,7,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Apple,Cherry,1,Apple,Cherry,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Apple,Cherry,1,Cherry,Cherry,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,9,5,6,9,10,10,8,4,5,8,9,9,10,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Banana,Apple,1,Banana,Banana,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Banana,Apple,1,Banana,Banana,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,7,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Banana,Apple,1,Banana,Apple,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Banana,Apple,1,Banana,Apple,without,,,,,,,,,,,,,,,,,,,,,7,8,8,7,6,9,5,6,9,10,10,8,4,5,8,9,9,10,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Mango,Banana,1,Mango,Mango,with,,,,,,,,,,,,,,,,,,,,,7,6,8,7,6,5,5,4,9,8,10,9,4,3,8,7,9,8,10,9
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Mango,Banana,1,Mango,Mango,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,7,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Mango,Banana,1,Mango,Banana,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Mango,Banana,1,Mango,Banana,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,7,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Papaya,5,Strawberry,Strawberry,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Papaya,5,Strawberry,Strawberry,without,,,,,,,,,,,,,,,,,,,,,7,8,8,7,6,9,5,6,9,8,10,9,4,5,8,8,9,10,10,9
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Papaya,5,Strawberry,Papaya,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Papaya,5,Strawberry,Papaya,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,9,5,6,9,10,10,8,4,5,8,9,9,10,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Mango,Papaya,5,Mango,Mango,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Mango,Papaya,5,Mango,Mango,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,9,5,6,9,10,10,7,4,5,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Mango,Papaya,5,Mango,Papaya,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Mango,Papaya,5,Mango,Papaya,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,9,5,6,9,10,10,8,4,5,8,9,9,10,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Kiwi,4,Strawberry,Strawberry,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Kiwi,4,Strawberry,Strawberry,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,9,5,6,9,10,10,8,4,5,8,9,9,10,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Kiwi,4,Strawberry,Kiwi,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Kiwi,4,Strawberry,Kiwi,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,9,5,6,9,10,10,8,4,5,8,9,9,7,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Papaya,4,Pineapple,Pineapple,with,,,,,,,,,,,,,,,,,,,,,7,8,8,7,6,6,5,5,9,9,10,8,4,4,8,7,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Papaya,4,Pineapple,Pineapple,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,9,5,6,9,10,10,8,4,5,8,9,9,10,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Papaya,4,Pineapple,Papaya,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Papaya,4,Pineapple,Papaya,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,9,5,6,9,10,10,8,4,5,8,7,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Mango,Kiwi,4,Mango,Mango,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Mango,Kiwi,4,Mango,Mango,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,7,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Mango,Kiwi,4,Mango,Kiwi,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,5,5,9,9,10,10,4,4,8,8,9,9,10,10
+roleplay,fruit,,,,,,,,,,,,,,,,,,,,,Mango,Kiwi,4,Mango,Kiwi,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,9,5,6,9,7,10,8,4,5,8,7,9,9,10,10
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,7,7,6,Sandwich maker,Blender,0,Blender,Sandwich maker,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,5,5,6,4,4,3,5,7,7,6,6,8,6,7,7,Sandwich maker,Blender,0,Blender,Sandwich maker,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,8,8,9,6,6,5,5,4,4,3,3,7,7,6,5,8,7,7,8,Sandwich maker,Blender,0,Blender,Blender,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,5,5,6,4,4,3,5,7,6,6,7,8,6,7,6,Sandwich maker,Blender,0,Blender,Blender,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,9,7,6,Table Fan,Coffee maker,0,Coffee maker,Table Fan,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,6,5,7,4,5,3,6,7,7,6,8,8,9,7,7,Table Fan,Coffee maker,0,Coffee maker,Table Fan,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,7,7,6,Table Fan,Coffee maker,0,Coffee maker,Coffee maker,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,6,5,7,4,5,3,6,7,7,6,6,8,5,7,7,Table Fan,Coffee maker,0,Coffee maker,Coffee maker,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,7,7,6,Toaster,Blender,0,Blender,Toaster,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,5,5,6,4,4,3,5,7,7,6,6,8,7,7,7,Toaster,Blender,0,Blender,Toaster,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,8,8,9,6,6,5,5,4,4,3,3,7,7,6,5,8,8,7,7,Toaster,Blender,0,Blender,Blender,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,5,5,6,4,4,3,5,7,6,6,7,8,6,7,5,Toaster,Blender,0,Blender,Blender,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,7,7,6,Toaster,Sandwich maker,0,Sandwich maker,Toaster,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,6,5,7,4,5,3,6,7,7,6,6,8,7,7,7,Toaster,Sandwich maker,0,Toaster,Toaster,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,7,7,6,Toaster,Sandwich maker,0,Sandwich maker,Sandwich maker,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,5,5,6,4,4,3,5,7,7,6,6,8,6,7,5,Toaster,Sandwich maker,0,Toaster,Sandwich maker,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,7,7,6,Blender,Desk lamp,1,Blender,Blender,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,5,5,6,4,4,3,5,7,7,6,6,8,7,7,7,Blender,Desk lamp,1,Blender,Blender,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,7,7,6,Blender,Desk lamp,1,Blender,Desk lamp,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,6,5,5,4,4,3,3,7,7,6,6,8,5,7,7,Blender,Desk lamp,1,Blender,Desk lamp,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,7,7,6,Table Fan,Radio,5,Table Fan,Table Fan,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,6,5,7,4,5,3,4,7,7,6,6,8,8,7,7,Table Fan,Radio,5,Table Fan,Table Fan,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,7,7,6,Table Fan,Radio,5,Table Fan,Radio,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,6,5,7,4,5,3,6,7,7,6,6,8,7,7,7,Table Fan,Radio,5,Table Fan,Radio,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,7,7,6,Coffee maker,Radio,5,Coffee maker,Coffee maker,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,6,5,7,4,5,3,4,7,7,6,6,8,7,7,7,Coffee maker,Radio,5,Coffee maker,Coffee maker,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,7,7,6,Coffee maker,Radio,5,Coffee maker,Radio,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,6,5,7,4,5,3,6,7,7,6,8,8,7,7,7,Coffee maker,Radio,5,Coffee maker,Radio,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,7,7,6,Toaster,Radio,4,Toaster,Toaster,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,6,5,7,4,5,3,4,7,7,6,6,8,7,7,7,Toaster,Radio,4,Toaster,Toaster,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,7,7,6,Toaster,Radio,4,Toaster,Radio,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,6,5,7,4,5,3,6,7,7,6,6,8,7,7,6,Toaster,Radio,4,Toaster,Radio,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,9,7,6,Table Fan,Photo Frame,4,Table Fan,Table Fan,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,6,5,7,4,5,3,6,7,7,6,8,8,9,7,7,Table Fan,Photo Frame,4,Table Fan,Table Fan,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,7,7,6,Table Fan,Photo Frame,4,Table Fan,Photo Frame,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,6,5,7,4,5,3,6,7,7,6,6,8,5,7,7,Table Fan,Photo Frame,4,Table Fan,Photo Frame,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,5,8,7,7,6,Sandwich maker,Radio,4,Sandwich maker,Sandwich maker,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,6,5,7,4,5,3,4,7,8,6,6,8,7,7,7,Sandwich maker,Radio,4,Sandwich maker,Sandwich maker,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,6,8,8,6,5,5,4,4,3,3,2,7,7,6,6,8,7,7,5,Sandwich maker,Radio,4,Sandwich maker,Radio,with,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,object,7,7,8,8,6,6,5,7,4,5,3,6,7,7,6,6,8,7,7,7,Sandwich maker,Radio,4,Sandwich maker,Radio,without,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Chicken wings,0,Chicken wings,Fried chicken,with,8,7,7,8,8,8,6,6,9,9,7,7,8,8,9,9,5,6,6,7,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Chicken wings,0,Fried chicken,Fried chicken,without,8,8,7,7,8,8,6,6,9,7,7,5,8,7,9,9,5,4,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Chicken wings,0,Chicken wings,Chicken wings,with,8,8,7,7,8,7,6,6,9,8,7,6,8,7,9,9,5,5,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Fried chicken,Chicken wings,0,Fried chicken,Chicken wings,without,8,8,7,7,8,6,6,5,9,7,7,4,8,6,9,9,5,3,6,5,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Mashed potatoes,French fries,0,French fries,Mashed potatoes,with,8,8,7,9,8,8,6,7,9,9,7,7,8,8,9,9,5,6,6,7,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Mashed potatoes,French fries,0,French fries,Mashed potatoes,without,8,8,7,7,8,8,6,6,9,7,7,6,8,7,9,9,5,5,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Mashed potatoes,French fries,0,French fries,French fries,with,8,8,7,7,8,8,6,6,9,8,7,6,8,7,9,9,5,5,6,7,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Mashed potatoes,French fries,0,French fries,French fries,without,8,8,7,9,8,7,6,6,9,8,7,5,8,7,9,9,5,4,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pasta,Chicken wings,0,Chicken wings,Pasta,with,8,7,7,8,8,7,6,6,9,8,7,6,8,7,9,9,5,5,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pasta,Chicken wings,0,Chicken wings,Pasta,without,8,8,7,7,8,7,6,6,9,8,7,5,8,7,9,9,5,4,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pasta,Chicken wings,0,Chicken wings,Chicken wings,with,8,8,7,7,8,8,6,6,9,8,7,6,8,7,9,9,5,5,6,7,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pasta,Chicken wings,0,Chicken wings,Chicken wings,without,8,8,7,7,8,7,6,6,9,8,7,5,8,7,9,9,5,4,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pasta,Fried chicken,0,Fried chicken,Pasta,with,8,8,7,7,8,8,6,6,9,8,7,6,8,7,9,9,5,5,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pasta,Fried chicken,0,Fried chicken,Pasta,without,8,8,7,7,8,9,6,6,9,8,7,5,8,7,9,9,5,4,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pasta,Fried chicken,0,Fried chicken,Fried chicken,with,8,8,7,7,8,8,6,6,9,8,7,6,8,7,9,9,5,5,6,7,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pasta,Fried chicken,0,Fried chicken,Fried chicken,without,8,8,7,7,8,9,6,6,9,8,7,5,8,7,9,9,5,4,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pizza,Hamburgers,0,Pizza,Pizza,with,8,7,7,8,8,7,6,6,9,8,7,6,8,7,9,9,5,5,6,4,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pizza,Hamburgers,0,Pizza,Pizza,without,8,8,7,7,8,8,6,6,9,7,7,5,8,7,9,9,5,4,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pizza,Hamburgers,0,Pizza,Hamburgers,with,8,7,7,8,8,7,6,6,9,8,7,6,8,7,9,9,5,5,6,4,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pizza,Hamburgers,0,Pizza,Hamburgers,without,8,8,7,7,8,8,6,6,9,9,7,5,8,7,9,9,5,4,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pizza,Salad,4,Pizza,Pizza,with,8,7,7,8,8,7,6,6,9,8,7,6,8,7,9,9,5,5,6,4,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pizza,Salad,4,Pizza,Pizza,without,8,8,7,7,8,8,6,6,9,7,7,5,8,7,9,9,5,4,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pizza,Salad,4,Pizza,Salad,with,8,7,7,8,8,7,6,6,9,8,7,6,8,7,9,9,5,5,6,4,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pizza,Salad,4,Pizza,Salad,without,8,8,7,7,8,8,6,6,9,7,7,5,8,7,9,9,5,6,6,7,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Hamburgers,Salad,4,Hamburgers,Hamburgers,with,8,8,7,7,8,8,6,6,9,8,7,6,8,7,9,9,5,5,6,7,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Hamburgers,Salad,4,Hamburgers,Hamburgers,without,8,8,7,7,8,8,6,6,9,9,7,5,8,7,9,9,5,4,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Hamburgers,Salad,4,Hamburgers,Salad,with,8,8,7,7,8,8,6,6,9,7,7,6,8,7,9,9,5,5,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Hamburgers,Salad,4,Hamburgers,Salad,without,8,8,7,7,8,8,6,6,9,7,7,5,8,7,9,9,5,6,6,7,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pizza,Sushi,3,Pizza,Pizza,with,8,8,7,7,8,8,6,6,9,8,7,6,8,7,9,9,5,5,6,7,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pizza,Sushi,3,Pizza,Pizza,without,8,8,7,7,8,8,6,6,9,7,7,5,8,7,9,9,5,4,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pizza,Sushi,3,Pizza,Sushi,with,8,8,7,7,8,8,6,6,9,9,7,7,8,8,9,9,5,5,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pizza,Sushi,3,Pizza,Sushi,without,8,8,7,7,8,8,6,6,9,7,7,5,8,7,9,9,5,6,6,5,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pizza,Grilled Cheeses,3,Pizza,Pizza,with,8,7,7,8,8,7,6,6,9,8,7,6,8,7,9,9,5,5,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pizza,Grilled Cheeses,3,Pizza,Pizza,without,8,8,7,7,8,8,6,6,9,7,7,5,8,7,9,9,5,4,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pizza,Grilled Cheeses,3,Pizza,Grilled Cheeses,with,8,8,7,7,8,8,6,6,9,9,7,7,8,8,9,9,5,5,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pizza,Grilled Cheeses,3,Pizza,Grilled Cheeses,without,8,8,7,7,8,8,6,6,9,7,7,5,8,7,9,9,5,4,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pasta,Salad,3,Pasta,Pasta,with,8,8,7,7,8,8,6,6,9,8,7,6,8,7,9,9,5,5,6,7,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pasta,Salad,3,Pasta,Pasta,without,8,8,7,7,8,8,6,6,9,7,7,5,8,7,9,9,5,4,6,6,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pasta,Salad,3,Pasta,Salad,with,8,-1,7,-1,8,-1,6,-1,9,-1,7,-1,8,-1,9,-1,5,-1,6,-1,,,,,,,,,,,,,,,,,,,,
+predict,food,,,,,,,,,,,,,,,,,,,,,Pasta,Salad,3,Pasta,Salad,without,8,8,7,7,8,8,6,6,9,9,7,5,8,7,9,9,5,6,6,7,,,,,,,,,,,,,,,,,,,,
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Kiwi,Apple,0,Apple,Kiwi,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Kiwi,Apple,0,Apple,Kiwi,without,,,,,,,,,,,,,,,,,,,,,7,7,8,6,6,8,7,7,8,9,9,8,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Kiwi,Apple,0,Apple,Apple,with,,,,,,,,,,,,,,,,,,,,,7,8,8,7,6,6,7,5,8,9,9,8,5,4,8,7,9,9,9,10
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Kiwi,Apple,0,Apple,Apple,without,,,,,,,,,,,,,,,,,,,,,7,8,8,7,6,9,7,6,8,8,9,8,5,5,8,7,9,9,9,8
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Mango,Banana,0,Mango,Mango,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Mango,Banana,0,Mango,Mango,without,,,,,,,,,,,,,,,,,,,,,7,7,8,6,6,8,7,5,8,9,9,7,5,4,8,8,9,9,9,10
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Mango,Banana,0,Mango,Banana,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Mango,Banana,0,Mango,Banana,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,5,8,7,9,8,5,4,8,7,9,9,9,8
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Banana,0,Banana,Pineapple,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Banana,0,Pineapple,Pineapple,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,9,9,8,5,5,8,9,9,9,9,10
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Banana,0,Banana,Banana,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Banana,0,Pineapple,Banana,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,5,8,7,9,8,5,4,8,7,9,9,9,8
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Mango,0,Mango,Pineapple,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Mango,0,Mango,Pineapple,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,5,8,9,9,8,5,4,8,7,9,9,9,10
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Mango,0,Mango,Mango,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Pineapple,Mango,0,Mango,Mango,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,5,8,9,9,7,5,4,8,8,9,9,9,10
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Orange,0,Orange,Strawberry,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Orange,0,Orange,Strawberry,without,,,,,,,,,,,,,,,,,,,,,7,7,8,6,6,8,7,5,8,9,9,7,5,4,8,8,9,9,9,10
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Orange,0,Orange,Orange,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Orange,0,Orange,Orange,without,,,,,,,,,,,,,,,,,,,,,7,7,8,6,6,8,7,5,8,9,9,7,5,4,8,8,9,9,9,10
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Papaya,4,Watermelon,Watermelon,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Papaya,4,Watermelon,Watermelon,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,5,8,7,9,8,5,4,8,7,9,9,9,8
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Papaya,4,Watermelon,Papaya,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Papaya,4,Watermelon,Papaya,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,9,7,6,8,8,9,7,5,5,8,8,9,9,9,8
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Papaya,4,Strawberry,Strawberry,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Papaya,4,Strawberry,Strawberry,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,9,7,6,8,8,9,7,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Papaya,4,Strawberry,Papaya,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Papaya,4,Strawberry,Papaya,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,9,9,8,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Orange,Papaya,4,Orange,Orange,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Orange,Papaya,4,Orange,Orange,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,5,8,9,9,8,5,4,8,7,9,9,9,8
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Orange,Papaya,4,Orange,Papaya,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Orange,Papaya,4,Orange,Papaya,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,9,7,6,8,8,9,9,5,5,8,8,9,10,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Cherry,3,Watermelon,Watermelon,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Cherry,3,Watermelon,Watermelon,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,9,9,8,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Cherry,3,Watermelon,Cherry,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Watermelon,Cherry,3,Watermelon,Cherry,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,9,9,8,5,5,8,8,9,9,9,7
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Cherry,3,Strawberry,Strawberry,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Cherry,3,Strawberry,Strawberry,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,9,9,8,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Cherry,3,Strawberry,Cherry,with,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,8,9,9,5,5,8,8,9,9,9,9
+predict,fruit,,,,,,,,,,,,,,,,,,,,,Strawberry,Cherry,3,Strawberry,Cherry,without,,,,,,,,,,,,,,,,,,,,,7,7,8,8,6,6,7,7,8,9,9,8,5,5,8,8,9,9,9,9

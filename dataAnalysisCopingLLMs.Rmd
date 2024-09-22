@@ -1,0 +1,876 @@
+---
+title: "DataAnalysisCopingLLMs"
+output: html_document
+date: "2024-03-15"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Loading Data
+
+```{r echo = FALSE}
+library(ggplot2)
+library(readr)
+library(brms)
+library(cowplot)
+library(stringr) 
+library(xtable)
+
+# Experiment 1 
+ex1_chatgpt <- read_csv("experiment1_gpt-3.5-turbo.csv")
+ex1_furbo   <- read_csv("experiment1_gpt-4-0125-preview.csv")
+ex1_sonnet  <- read_csv("experiment1_claude-3-sonnet-20240229.csv")
+ex1_opus    <- read_csv("experiment1_claude-3-opus-20240229.csv")
+ex1_mixtral <- read_csv("experiment1_MIXTRAL-8x7b-instruct.csv")
+
+
+# Experiment 2 
+ex2_chatgpt <- read_csv("experiment2_gpt-3.5-turbo.csv")
+ex2_furbo   <- read_csv("experiment2_gpt-4-0125-preview.csv")
+ex2_sonnet  <- read_csv("experiment2_claude-3-sonnet-20240229.csv")
+ex2_opus0    <- read_csv("experiment2_claude-3-opus-202402290-10.csv")
+ex2_opus1    <- read_csv("experiment2_claude-3-opus-2024022911-20.csv")
+ex2_opus     <- rbind(ex2_opus0, ex2_opus1)
+
+ex2_mixtral0 <- read_csv("experiment2_MIXTRAL-8x7b-instruct_0-5.csv")
+ex2_mixtral1 <- read_csv("experiment2_MIXTRAL-8x7b-instruct_6-10.csv")
+ex2_mixtral2 <- read_csv("experiment2_MIXTRAL-8x7b-instruct_11-15.csv")
+ex2_mixtral3 <- read_csv("experiment2_MIXTRAL-8x7b-instruct_16-20.csv")
+
+ex2_mixtral  <- rbind(ex2_mixtral0, ex2_mixtral1, ex2_mixtral2, ex2_mixtral3)
+
+# Model's Name
+CHATGPT <- "ChatGPT"
+FURBO   <- "GPT4-Turbo"
+SONNET  <- "Sonnet"
+OPUS    <- "Opus"
+MIXTRAL <- "Mixtral"
+
+ex1_chatgpt$model <- CHATGPT
+ex1_furbo$model   <- FURBO
+ex1_sonnet$model  <- SONNET
+ex1_opus$model    <- OPUS
+ex1_mixtral$model <- MIXTRAL
+
+dat_ex1 <- rbind(ex1_chatgpt, ex1_furbo, ex1_sonnet, ex1_opus, ex1_mixtral)
+
+ex2_chatgpt$model <- CHATGPT
+ex2_furbo$model   <- '4Turbo'
+ex2_sonnet$model  <- SONNET
+ex2_opus$model    <- OPUS
+ex2_mixtral$model <- MIXTRAL
+
+dat_ex2 <- rbind(ex2_chatgpt, ex2_furbo, ex2_sonnet, ex2_opus, ex2_mixtral)
+model_order <- c(MIXTRAL, CHATGPT, FURBO, SONNET, OPUS)
+perspective_order <- c('self','roleplay','predict')
+```
+
+
+## Experiment 1
+
+### Cleaning up Data for Experiment 1
+
+
+```{r echo=FALSE}
+
+# Function to extract key info for each
+genEx1Decision <- function(dat){
+  # Since decisions are the same for two forced decisions (they happened after.)
+  dat <- dat[which(dat$forced_decision==dat$choices_1), ]
+  
+  # Key info: Decision, Diff, mode (with/without), perspective, items
+  ## Decision: 1st or 2nd. 
+  ## Diff: positive = 1st is higher. 
+  new_dat <- data.frame(
+    decision    = ifelse(dat$decision == dat$choices_1, "1st","2nd"),
+    difference  = dat$choices_diff,
+    prior       = dat$prior,
+    perspective = dat$perspective,
+    itme        = dat$item
+  )
+  
+  return(new_dat)
+}
+
+
+cal_diff_2 <- function(dat){
+  results <- rep(0, dim(dat)[1])
+  for(i in 1:dim(dat)[1]){
+    # Check -1 error of no answer -> pre fill with prior 
+    first_choice_2nd_rating  <- dat[[ paste0(dat$choices_1[i],"_2") ]][i]
+    second_choice_2nd_rating <- dat[[ paste0(dat$choices_2[i],"_2") ]][i]
+    # -1 == refuse to answer
+    if(first_choice_2nd_rating == -1) first_choice_2nd_rating <- dat[[ paste0(dat$choices_1[i],"_1") ]][i] 
+    if(second_choice_2nd_rating == -1) second_choice_2nd_rating <- dat[[ paste0(dat$choices_1[i],"_1") ]][i] 
+    results[i] <- first_choice_2nd_rating - second_choice_2nd_rating
+  }
+  return(results)
+}
+
+
+cal_diff_1stchoice <- function(dat){
+  results <- rep(0, dim(dat)[1])
+  for(i in 1:dim(dat)[1]){
+    first_choice_1st_rating  <- dat[[ paste0(dat$choices_1[i],"_1") ]][i]
+    first_choice_2nd_rating <- dat[[ paste0(dat$choices_1[i],"_2") ]][i]
+    # -1 == refuse to answer
+    if(first_choice_2nd_rating == -1) first_choice_2nd_rating <- first_choice_1st_rating
+    results[i] <- first_choice_2nd_rating - first_choice_1st_rating
+  }
+  return(results)
+}
+
+cal_diff_2ndchoice <- function(dat){
+  results <- rep(0, dim(dat)[1])
+  for(i in 1:dim(dat)[1]){
+    second_choice_1st_rating  <- dat[[ paste0(dat$choices_2[i],"_1") ]][i]
+    second_choice_2nd_rating <- dat[[ paste0(dat$choices_2[i],"_2") ]][i]
+    # -1 == refuse to answer
+    if(second_choice_2nd_rating == -1) second_choice_2nd_rating <- second_choice_1st_rating
+    results[i] <- second_choice_2nd_rating - second_choice_1st_rating
+  }
+  return(results)
+}
+
+genEx1PrefChange <- function(dat){
+  
+  # Key info: 1st_Diff, 2nd_diff, gap, forced_decision (1st, 2nd), mode (with/without), perspective, items
+  new_dat <- data.frame(
+    first_diff = dat$choices_diff,
+    second_diff = cal_diff_2(dat),
+    first_choice_diff = cal_diff_1stchoice(dat),
+    second_choice_diff = cal_diff_2ndchoice(dat),
+    forced_decision = dat$forced_decision,
+    condition  = ifelse(dat$choices_diff <= 1, "Hard","Easy"),
+    prior      = dat$prior,
+    perspective = dat$perspective,
+    item        = dat$item
+  )
+  new_dat$gap <- new_dat$second_diff - new_dat$first_diff
+  
+  return(new_dat)
+}
+
+ex1_chatgpt_d <- genEx1Decision(ex1_chatgpt)
+ex1_furbo_d   <- genEx1Decision(ex1_furbo)
+ex1_sonnet_d  <- genEx1Decision(ex1_sonnet)
+ex1_opus_d    <- genEx1Decision(ex1_opus)
+ex1_mixtral_d   <- genEx1Decision(ex1_mixtral)
+
+ex1_chatgpt_d$model <- CHATGPT
+ex1_furbo_d$model   <- FURBO
+ex1_sonnet_d$model  <- SONNET
+ex1_opus_d$model    <- OPUS
+ex1_mixtral_d$model <- MIXTRAL
+
+ex1_d <- rbind(ex1_chatgpt_d, ex1_furbo_d, ex1_sonnet_d, ex1_opus_d, ex1_mixtral_d)
+
+ex1_chatgpt_p <- genEx1PrefChange(ex1_chatgpt)
+ex1_furbo_p   <- genEx1PrefChange(ex1_furbo)
+ex1_sonnet_p  <- genEx1PrefChange(ex1_sonnet)
+ex1_opus_p    <- genEx1PrefChange(ex1_opus)
+ex1_mixtral_p   <- genEx1PrefChange(ex1_mixtral)
+
+ex1_chatgpt_p$model <- CHATGPT
+ex1_furbo_p$model   <- FURBO
+ex1_sonnet_p$model  <- SONNET
+ex1_opus_p$model    <- OPUS
+ex1_mixtral_p$model <- MIXTRAL
+
+ex1_p <- rbind(ex1_chatgpt_p, ex1_furbo_p, ex1_sonnet_p, ex1_opus_p, ex1_mixtral_p)
+```
+
+
+### Ploting Experiment 1 Results 1: Decision x Preference (ex1_d)
+
+```{r echo=FALSE}
+## Compare prior: with vs without -> Percentage of the same choices
+### y = percentage of same choices between with and without, x = model (x perspective)
+
+cal_percentage <- function(column, target){
+  return( sum(column==target)/length(column) )
+}
+
+cal_same_decision_wout <- function(dat){
+  return(cal_percentage(subset(dat, prior == 'with')$decision == subset(dat, prior=='without')$decision, TRUE))
+}
+
+models <- c(CHATGPT, FURBO, SONNET, OPUS, MIXTRAL)
+perspective <- c('self','roleplay','predict')
+
+same_choices <- data.frame(
+  same = c(cal_same_decision_wout(subset(ex1_d, model == CHATGPT)),
+           cal_same_decision_wout(subset(ex1_d, model == FURBO)),
+           cal_same_decision_wout(subset(ex1_d, model == SONNET)),
+           cal_same_decision_wout(subset(ex1_d, model == OPUS)),
+           cal_same_decision_wout(subset(ex1_d, model == MIXTRAL))
+  ),
+  model = models
+)
+
+same_choices_per <- data.frame(
+  same = c(cal_same_decision_wout(subset(ex1_d, model == CHATGPT & perspective == 'self')),
+           cal_same_decision_wout(subset(ex1_d, model == FURBO & perspective == 'self')),
+           cal_same_decision_wout(subset(ex1_d, model == SONNET & perspective == 'self')),
+           cal_same_decision_wout(subset(ex1_d, model == OPUS & perspective == 'self')),
+           cal_same_decision_wout(subset(ex1_d, model == MIXTRAL & perspective == 'self')),
+           cal_same_decision_wout(subset(ex1_d, model == CHATGPT & perspective == 'roleplay')),
+           cal_same_decision_wout(subset(ex1_d, model == FURBO & perspective == 'roleplay')),
+           cal_same_decision_wout(subset(ex1_d, model == SONNET & perspective == 'roleplay')),
+           cal_same_decision_wout(subset(ex1_d, model == OPUS & perspective == 'roleplay')),
+           cal_same_decision_wout(subset(ex1_d, model == MIXTRAL & perspective == 'roleplay')),
+           cal_same_decision_wout(subset(ex1_d, model == CHATGPT & perspective == 'predict')),
+           cal_same_decision_wout(subset(ex1_d, model == FURBO & perspective == 'predict')),
+           cal_same_decision_wout(subset(ex1_d, model == SONNET & perspective == 'predict')),
+           cal_same_decision_wout(subset(ex1_d, model == OPUS & perspective == 'predict')),
+           cal_same_decision_wout(subset(ex1_d, model == MIXTRAL & perspective == 'predict'))
+  ),
+  model = rep(models, 3),
+  perspective = rep(perspective, each = 5)
+)
+
+same_choices$model <- ifelse(same_choices$model == FURBO, '4Turbo',same_choices$model)
+model_order <- c("Mixtral","ChatGPT","4Turbo","Sonnet","Opus")
+same_choices$model <- factor(same_choices$model, levels = model_order, ordered= TRUE)
+same_choices$same <- same_choices$same*100 #convert to 100% percentage
+### Plotting
+ggplot(same_choices, aes(y = same, x=model)) + geom_bar(stat = 'identity') + ylim(0,100) + ylab('% of choosing the same choice w/wo prior ratings') 
+
+## Compare consistent: [with only] and [diff != 0] -> Percentage of picking 1st choice (higher one)
+### y = percentage of picking the first choice (when not 0) -> Low and High? (x perspective)  
+
+temp_dat_wd <- subset(ex1_d, prior == 'with' & difference != 0)
+
+## I realized this too late to use table. IIWII.
+## avg number of choices = (49 + 54 + 63 + 52 + 47)/5
+decision_pref <- data.frame(table(temp_dat_wd$decision, temp_dat_wd$model)/rep(table(temp_dat_wd$model), each = 2))
+decision_pref$Perc <- decision_pref$Freq*100
+
+decision_pref_per <- data.frame(table(temp_dat_wd$decision, temp_dat_wd$model, temp_dat_wd$perspective)/rep(table(temp_dat_wd$model, temp_dat_wd$perspective), each = 2))
+decision_pref_per$Perc <- decision_pref_per$Freq*100
+
+### Plotting
+decision_pref$Var2 <- factor(decision_pref$Var2, levels = c("Mixtral","ChatGPT","GPT4-Turbo","Sonnet","Opus"), ordered=TRUE)
+ggplot(decision_pref[which(decision_pref$Var1=='1st'),], aes(y = Perc, x=Var2)) + geom_bar(stat = 'identity') + geom_bar(stat = 'identity') + xlab('model') + ylab('% of choosing the higher rate option') + 
+  scale_x_discrete(labels = c("Mixtral","ChatGPT","4Turbo","Sonnet","Opus"))
+
+```
+
+### Ploting Experiment 1 Result 2: Preference Changes (ex1_p)
+
+```{r echo=FALSE}
+## Three graphs: diff_1, diff_2, gap 
+
+## Gap:
+### y = gap (diff_1 - diff_2), x = model, group = high x low, facet = perspective x w/out.
+ex1_p$model <- factor(ex1_p$model, levels = model_order, ordered = TRUE)
+ggplot(ex1_p, aes(x = model, y=gap, fill = condition)) + geom_boxplot() + facet_grid(prior ~ perspective)
+
+
+gap_y <- "Diff between second and first gap"
+## Self x with
+gap_self_with <- brm(gap ~ model*condition, data = subset(ex1_p,perspective == 'self' & prior =='with'), 
+                     family = gaussian(), file='model/fixed_selfwith')
+## Roleplay x with
+gap_roleplay_with <- brm(gap ~ model*condition, data = subset(ex1_p,perspective == 'roleplay' & prior =='with'), 
+                         family = gaussian(), file = 'model/fixed_roleplaywith')
+## Prediction x With
+gap_predict_with <- brm(gap ~ model*condition, data = subset(ex1_p,perspective == 'predict' & prior =='with'), 
+                        family = gaussian(), file = 'model/fixed_predictwith')
+## Self x wout
+gap_self_wout <- brm(gap ~ model*condition, data = subset(ex1_p,perspective == 'self' & prior =='without'), 
+                     family = gaussian(), file = 'model/fixed_selfwithout')
+## Roleplay x without
+gap_roleplay_wout <- brm(gap ~ model*condition, data = subset(ex1_p,perspective == 'roleplay' & prior =='without'), 
+                         family = gaussian(), file = 'model/fixed_roleplaywithout')
+## Prediction x Without
+gap_predict_wout <- brm(gap ~ model*condition, data = subset(ex1_p,perspective == 'predict' & prior =='without'), 
+                        family = gaussian(), file = 'model/fixed_predictwithout')
+
+## Plotting
+g_gap_self_with <- plot(conditional_effects(gap_self_with), plot = FALSE)$`model:condition` + ylim(-4, 1.5)  +
+  ggtitle("A) Self x With Prior")  +  theme(legend.position="none") + ylab(gap_y) + 
+  scale_x_discrete(labels = c("Mixtral","ChatGPT","4Turbo","Sonnet","Opus")) + geom_hline(yintercept = 0.0, linetype='dashed')
+g_gap_roleplay_with <- plot(conditional_effects(gap_roleplay_with), plot = FALSE)$`model:condition` + ylim(-4, 1.5) + 
+  ggtitle("B) Roleplay x With Prior")  +  theme(axis.title.y=element_blank(), legend.position="none") + 
+  scale_x_discrete(labels = c("Mixtral","ChatGPT","4Turbo","Sonnet","Opus")) + geom_hline(yintercept = 0.0, linetype='dashed')
+g_gap_predict_with <- plot(conditional_effects(gap_predict_with), plot = FALSE)$`model:condition` + ylim(-4, 1.5) + 
+  ggtitle("C) Predict x With Prior")  +  theme(axis.title.y=element_blank(), legend.position="none") + 
+  scale_x_discrete(labels = c("Mixtral","ChatGPT","4Turbo","Sonnet","Opus")) + geom_hline(yintercept = 0.0, linetype='dashed')
+g_gap_self_wout <- plot(conditional_effects(gap_self_wout), plot = FALSE)$`model:condition` + ylim(-5.25, 1.5) + 
+  ggtitle("D) Self x Without Prior")  +  theme(legend.position="none") + ylab(gap_y) + 
+  scale_x_discrete(labels = c("Mixtral","ChatGPT","4Turbo","Sonnet","Opus")) + geom_hline(yintercept = 0.0, linetype='dashed')
+g_gap_roleplay_wout <- plot(conditional_effects(gap_roleplay_wout), plot = FALSE)$`model:condition` + ylim(-4, 1.5) + 
+  ggtitle("E) Roleplay x Without Prior") +  theme(axis.title.y=element_blank(), legend.position="none") + 
+  scale_x_discrete(labels = c("Mixtral","ChatGPT","4Turbo","Sonnet","Opus")) + geom_hline(yintercept = 0.0, linetype='dashed')
+
+
+g_gap_predict_wout <- plot(conditional_effects(gap_predict_wout), plot = FALSE)$`model:condition` + ylim(-4, 1.5)  + ggtitle("F) Predict x Without Prior")  +  theme(axis.title.y=element_blank()) + geom_hline(yintercept = 0.0, linetype='dashed')
+
+legend <- get_legend(
+  # create some space to the left of the legend
+  g_gap_predict_wout + theme(legend.position = 'bottom')
+)
+g_gap_predict_wout <- g_gap_predict_wout +  theme(legend.position="none")
+
+pg <- plot_grid(g_gap_self_with, g_gap_roleplay_with, g_gap_predict_with, g_gap_self_wout, g_gap_roleplay_wout, g_gap_predict_wout, nrow = 2)
+
+plot_grid(pg, legend, nrow = 2,rel_heights = c(1, .1))
+```
+
+```{r echo=FALSE}
+## Hypo
+### Checking individual pairs 
+hypocheck_ex1 <- function(dat, p, pri, m){
+  temp <- brm(gap ~ condition, data = subset(dat, perspective == p & prior == pri & model== m), family = gaussian(), file= paste0('model/',p, pri, m) )
+  print(temp)
+  temp_hypo <- hypothesis(temp, "conditionLow < 0")
+  return(temp_hypo)
+}
+perspectives <- c("self","roleplay","predict")
+priors       <- c('with','without')
+results <- data.frame()
+for(p in perspectives){
+  for(prior in priors){
+    for(model in models){
+      temp_out <- hypocheck_ex1(ex1_p, p, prior, model)
+      temp_df <-  data.frame(temp_out$hypothesis)
+      temp_df$perspective <- p
+      temp_df$prior <- prior
+      temp_df$model <- model
+      results <- rbind(results, temp_df)
+    }
+  }
+}
+print(results)
+write.csv(results, file='ex1_main_hypo.csv')
+
+
+```
+
+```{r echo = FALSE}
+## Test Normally distributed assumption
+
+
+
+## Test Homogeneity in variances
+### Mainly mixtral and cHATGPT that violate sometimes.
+count <- 0
+perspectives <- c("self","roleplay","predict")
+priors       <- c('with','without')
+models <- c(CHATGPT, FURBO, SONNET, OPUS, MIXTRAL)
+items <- c("object","fruit","food")
+for(p in perspectives){
+  for(pri in priors){
+    for(m in models){
+        print(c(p, pri, m))
+        temp_dat = subset(ex1_p, model == m & perspective == p & prior == pri)
+        print(shapiro.test(temp_dat$gap))
+        print(bartlett.test(gap ~ condition, data=temp_dat))
+        ## 
+        if(sum(temp_dat$condition=='Easy') != sum(temp_dat$condition=='Hard')) { 
+          count <- count + 1
+          next
+        }
+        print(t.test(gap ~ condition, data = temp_dat, paired = TRUE)$p.value)
+        print(wilcox.test(gap ~ condition, data= temp_dat, paired = TRUE)$p.value)
+    }
+  }
+}
+print(count)
+
+
+```
+
+
+```{r echo=FALSE}
+
+## Check High's gap > 0:
+hypocheck_ex1_high <- function(dat, p, pri, m){
+  temp <- brm(gap ~ condition, data = subset(dat, perspective == p & prior == pri & model== m), family = gaussian(), file= paste0('model/',p, pri, m) )
+  print(temp)
+  temp_hypo <- hypothesis(temp, "Intercept > 0")
+  return(temp_hypo)
+}
+perspectives <- c("self","roleplay","predict")
+priors       <- c('with','without')
+results <- data.frame()
+for(p in perspectives){
+  for(prior in priors){
+    for(model in models){
+      temp_out <- hypocheck_ex1_high(ex1_p, p, prior, model)
+      temp_df <-  data.frame(temp_out$hypothesis)
+      temp_df$perspective <- p
+      temp_df$prior <- prior
+      temp_df$model <- model
+      results <- rbind(results, temp_df)
+    }
+  }
+}
+print(results)
+write.csv(results, file='ex1_high_hypo.csv')
+
+
+```
+
+```{r echo}
+## Generate latex tables for supplement of Ex1 
+ex1_main_hypo <- read.csv('ex1_main_hypo.csv')
+ex1_high_hypo <- read.csv('ex1_high_hypo.csv')
+
+## Extract info
+new_ex1_main_hypo <- data.frame(
+  model = ex1_main_hypo$model,
+  perspective = ex1_main_hypo$perspective,
+  prior = ex1_main_hypo$prior,
+  Estimae = round(ex1_main_hypo$Estimate, 3),
+  SE = round(ex1_main_hypo$Est.Error, 3),
+  Prob = round(ex1_main_hypo$Post.Prob, 3),
+  Star = ex1_main_hypo$Star
+)
+
+
+new_ex1_high_hypo <- data.frame(
+  model = ex1_high_hypo$model,
+  perspective = ex1_high_hypo$perspective,
+  prior = ex1_high_hypo$prior,
+  Estimae = round(ex1_high_hypo$Estimate, 3),
+  SE = round(ex1_high_hypo$Est.Error, 3),
+  Prob = round(ex1_high_hypo$Post.Prob, 3),
+  Star = ex1_high_hypo$Star
+)
+
+print(xtable(new_ex1_main_hypo, type = "latex"), file = "new_ex1_main_hypo.tex")
+
+print(xtable(new_ex1_high_hypo, type = "latex"), file = "new_ex1_high_hypo.tex")
+
+
+```
+
+
+
+
+## Experiment 2
+
+### Cleaning up Experiment 2 Data 
+```{r echo=FALSE}
+genEx2Decision0 <- function(dat){
+  ## key info: decision, mode, perspective (condition and forced_decision don't matter here)
+  dat <- dat[which(dat$condition=="worse" & dat$forced_decision =="Stay" & dat$n == "0") , ]
+  new_dat <- dat[,c("decision","flood_1","wind_1","prior","perspective")]
+  new_dat$decision <- ifelse(grepl('Evacuate',new_dat$decision,fixed=TRUE), 'Evacuate','Stay')
+  return(new_dat)
+}
+
+genEx2Decision1 <- function(dat){
+  ## key info: %percentage of evacuate, mode, perspective (condition doesn't matter here)
+  ## Combine all conditions and forced_decision here for more n 
+  dat <- dat[which(dat$n != "0"),]
+  new_dat <- dat[,c("decision","flood_1","wind_1","prior","perspective")]
+  new_dat$decision <- ifelse(grepl('Evacuate',new_dat$decision,fixed=TRUE), 'Evacuate','Stay')
+  
+  per_dat <- data.frame(
+    percentage_evacuate = c(sum(subset(new_dat, prior == 'with' & perspective == 'self')=='Evacuate'), 
+                             sum(subset(new_dat, prior == 'without' & perspective == 'self')=='Evacuate'), 
+                             sum(subset(new_dat, prior == 'with' & perspective == 'roleplay')=='Evacuate'), 
+                             sum(subset(new_dat, prior == 'without' & perspective == 'roleplay')=='Evacuate'),
+                             sum(subset(new_dat, prior == 'with' & perspective == 'predict')=='Evacuate'), 
+                             sum(subset(new_dat, prior == 'without' & perspective == 'predict')=='Evacuate')),
+    prior = rep(c("with","without"), 3),
+    perspective = rep(c('self','roleplay','predict'), each = 2)
+  )
+  per_dat$percentage_evacuate <- per_dat$percentage_evacuate/dim(subset(new_dat,prior == 'with' & perspective == 'self'))[1]
+  
+  return(per_dat)
+}
+
+genEx2Belief <- function(dat){
+  new_dat <- data.frame(
+    flood_1 = as.numeric(dat$flood_1),
+    flood_2 = as.numeric(dat$flood_2),
+    wind_1  = as.numeric(dat$wind_1),
+    wind_2  = as.numeric(dat$wind_2),
+    condition = dat$condition,
+    forced_decision = dat$forced_decision,
+    prior = dat$prior,
+    perspective = dat$perspective
+  )
+  return(new_dat)
+}
+
+
+ex2_chatgpt_d0 <- genEx2Decision0(ex2_chatgpt)
+ex2_chatgpt_d1 <- genEx2Decision1(ex2_chatgpt)
+ex2_furbo_d0 <- genEx2Decision0(ex2_furbo)
+ex2_furbo_d1 <- genEx2Decision1(ex2_furbo)
+ex2_sonnet_d0 <- genEx2Decision0(ex2_sonnet)
+ex2_sonnet_d1 <- genEx2Decision1(ex2_sonnet)
+ex2_opus_d0 <- genEx2Decision0(ex2_opus)
+ex2_opus_d1 <- genEx2Decision1(ex2_opus)
+ex2_mixtral_d0 <- genEx2Decision0(ex2_mixtral)
+ex2_mixtral_d1 <- genEx2Decision1(ex2_mixtral)
+
+ex2_chatgpt_d0$model <- CHATGPT
+ex2_chatgpt_d1$model <- CHATGPT
+ex2_furbo_d0$model   <- FURBO
+ex2_furbo_d1$model   <- FURBO
+ex2_sonnet_d0$model  <- SONNET
+ex2_sonnet_d1$model  <- SONNET
+ex2_opus_d0$model    <- OPUS
+ex2_opus_d1$model    <- OPUS
+ex2_mixtral_d0$model <- MIXTRAL
+ex2_mixtral_d1$model <- MIXTRAL
+
+ex2_d0 <- rbind(ex2_chatgpt_d0, ex2_furbo_d0, ex2_sonnet_d0, ex2_opus_d0, ex2_mixtral_d0)
+ex2_d1 <- rbind(ex2_chatgpt_d1, ex2_furbo_d1, ex2_sonnet_d1, ex2_opus_d1, ex2_mixtral_d1)
+
+ex2_chatgpt_b0 <- genEx2Belief(ex2_chatgpt[which(ex2_chatgpt$n=="0"),])
+ex2_chatgpt_b1 <- genEx2Belief(ex2_chatgpt[which(ex2_chatgpt$n!="0"),])
+ex2_furbo_b0 <- genEx2Belief(ex2_furbo[which(ex2_furbo$n=="0"),])
+ex2_furbo_b1 <- genEx2Belief(ex2_furbo[which(ex2_furbo$n!="0"),])
+ex2_sonnet_b0 <- genEx2Belief(ex2_sonnet[which(ex2_sonnet$n=="0"),])
+ex2_sonnet_b1 <- genEx2Belief(ex2_sonnet[which(ex2_sonnet$n!="0"),])
+ex2_opus_b0 <- genEx2Belief(ex2_opus[which(ex2_opus$n=="0"),])
+ex2_opus_b1 <- genEx2Belief(ex2_opus[which(ex2_opus$n!="0"),])
+ex2_mixtral_b0 <- genEx2Belief(ex2_mixtral[which(ex2_mixtral$n=="0"),])
+ex2_mixtral_b1 <- genEx2Belief(ex2_mixtral[which(ex2_mixtral$n!="0"),])
+
+ex2_chatgpt_b0$model <- CHATGPT
+ex2_chatgpt_b1$model <- CHATGPT
+ex2_furbo_b0$model   <- FURBO
+ex2_furbo_b1$model   <- FURBO
+ex2_sonnet_b0$model  <- SONNET
+ex2_sonnet_b1$model  <- SONNET
+ex2_opus_b0$model    <- OPUS
+ex2_opus_b1$model    <- OPUS
+ex2_mixtral_b0$model <- MIXTRAL
+ex2_mixtral_b1$model <- MIXTRAL
+
+ex2_b0 <- rbind(ex2_chatgpt_b0, ex2_furbo_b0, ex2_sonnet_b0, ex2_opus_b0, ex2_mixtral_b0)
+ex2_b1 <- rbind(ex2_chatgpt_b1, ex2_furbo_b1, ex2_sonnet_b1, ex2_opus_b1, ex2_mixtral_b1)
+```
+
+- Note:
+- A few manually clean up on ChatGPT (swap order of numbers)
+- Sonnet and Opus sometimes answer with explanation (more so for sonnet so can't follow instruction as closely as furbo.)
+- Mixtral can't follow instruction well at all.
+
+### Ploting Experiment 2 Results 2: Decision and initial beliefs
+```{r echo=FALSE}
+ex2_t0_decision <- data.frame(table(ex2_d0$decision, ex2_d0$model, ex2_d0$perspective, ex2_d0$prior))
+ex2_t0_flood    <- data.frame(table(ex2_d0$flood_1, ex2_d0$model, ex2_d0$perspective, ex2_d0$prior))
+ex2_t0_wind     <- data.frame(table(ex2_d0$wind_1, ex2_d0$model, ex2_d0$perspective, ex2_d0$prior))
+
+ex2_d1$model <- ifelse(ex2_d1$model == FURBO,'4Turbo',ex2_d1$model)
+ex2_d1$model <- factor(ex2_d1$model, levels = model_order)
+ex2_d1$percentage_evacuate <- ex2_d1$percentage_evacuate*100
+ex2_d1$perspective <- factor(ex2_d1$perspective, levels= perspective_order)
+
+ggplot(ex2_d1, aes(y = percentage_evacuate, x = model, group = prior, fill = prior)) + geom_bar(stat = 'identity', position='dodge') + facet_wrap(~perspective) + ylab('Evacuation (%)') + theme(legend.position = 'bottom')
+
+dat_ex2$model <- factor(dat_ex2$model, levels = c(MIXTRAL, CHATGPT, '4Turbo', SONNET, OPUS))
+dat_ex2$perspective <- factor(dat_ex2$perspective, levels = perspective_order, ordered=TRUE)
+
+ex2_b0$model <- ifelse(ex2_b0$model == FURBO, '4Turbo', ex2_b0$model)
+ex2_b0$perspective <- factor(ex2_b0$perspective, levels=perspective_order, ordered=TRUE)
+
+g_f1 <- ggplot(subset(dat_ex2, n != 0), aes(y = flood_1, x = model)) + geom_boxplot() + geom_point(data = ex2_b0, aes(y = flood_1, x= model), fill ='red', size=3, shape=21) + facet_wrap(~perspective) + geom_hline(yintercept=12, linetype="dashed") + ylab('Flood depth (inch)') 
+#n = 320 (4 conditions, 2 prior, 2 ddcisions)
+g_w1 <- ggplot(subset(dat_ex2, n != 0), aes(y =  wind_1, x = model)) + geom_boxplot() + geom_point(data = ex2_b0, aes(y = wind_1, x= model), fill ='red', size=3, shape=21)  + facet_wrap(~perspective) + geom_hline(yintercept=120, linetype="dashed") + ylab('Wind speed (mph)')
+
+plot_grid(g_f1, g_w1,labels = c('A','B'), nrow=2)
+```
+
+### Plotting Experiment 2 Results 2: Belief Changes
+```{r echo=FALSE}
+ex2_b1$model <- factor(ex2_b1$model, levels = model_order)
+ex2_b1$perspective <- factor(ex2_b1$perspective, levels = perspective_order)
+
+ggplot(ex2_b1[which(ex2_b1$condition == 'worse' & ex2_b1$prior == 'with'),], aes(y = flood_2, x = model, fill = forced_decision, color=forced_decision)) + geom_boxplot() + facet_grid(prior ~ perspective) + ggtitle('Worse Condition') + geom_jitter(shape=16, position=position_jitter(0.2))
+
+ggplot(ex2_b1[which(ex2_b1$condition == 'worse'  & ex2_b1$prior == 'with'),], aes(y = wind_2, x = as.factor(model), fill = forced_decision, color=forced_decision)) + geom_boxplot() + facet_grid(prior ~ perspective) + ggtitle('Worse Condition') + geom_jitter(shape=16, position=position_jitter(0.2))
+
+ggplot(ex2_b1[which(ex2_b1$condition == 'better'  & ex2_b1$prior == 'with'),], aes(y = flood_2, x = model, fill = forced_decision, color=forced_decision)) + geom_boxplot() + facet_grid(prior ~ perspective) + ggtitle('better Condition') + geom_jitter(shape=16, position=position_jitter(0.2))
+
+ggplot(ex2_b1[which(ex2_b1$condition == 'better'  & ex2_b1$prior == 'with'),], aes(y = wind_2, x = as.factor(model), fill = forced_decision, color=forced_decision)) + geom_boxplot() + facet_grid(prior ~ perspective) + ggtitle('better Condition') + geom_jitter(shape=16, position=position_jitter(0.2))
+
+ggplot(ex2_b1[which(ex2_b1$condition == 'uncertainty'  & ex2_b1$prior == 'with'),], aes(y = flood_2, x = model, fill = forced_decision, color=forced_decision)) + geom_boxplot() + facet_grid(prior ~ perspective) + ggtitle('uncertainty Condition') + geom_jitter(shape=16, position=position_jitter(0.2))
+
+ggplot(ex2_b1[which(ex2_b1$condition == 'uncertainty'  & ex2_b1$prior == 'with'),], aes(y = wind_2, x = as.factor(model), fill = forced_decision, color=forced_decision)) + geom_boxplot() + facet_grid(prior ~ perspective) + ggtitle('uncertainty Condition') + geom_jitter(shape=16, position=position_jitter(0.2))
+
+ggplot(ex2_b1[which(ex2_b1$condition == 'utility'  & ex2_b1$prior == 'with'),], aes(y = flood_2, x = model, fill = forced_decision, color=forced_decision)) + geom_boxplot() + facet_grid(prior ~ perspective) + ggtitle('utility Condition') + geom_jitter(shape=16, position=position_jitter(0.2))
+
+ggplot(ex2_b1[which(ex2_b1$condition == 'utility'  & ex2_b1$prior == 'with'),], aes(y = wind_2, x = as.factor(model), fill = forced_decision)) + geom_boxplot() + facet_grid(prior ~ perspective) + ggtitle('utility Condition') + geom_jitter(shape=16, position=position_jitter(0.2))
+
+
+```
+
+
+```{r echo=FALSE}
+## Temperature = 0 case
+View(subset(ex2_b0,prior=='with'))
+View(subset(ex2_b0,prior=='without'))
+```
+
+```{r echo=FALSE}
+
+## Plotting 
+### 4 x 3 plots 
+conditions <- c('worse','uncertainty','utility','better')
+ylabs_wind <- c("worse"=c(130, 160),"uncertainty"=c(130,160),"utility"=c(130, 160),"better"=c(90, 120))
+ylabs_flood <- c("worse"=c(10, 24), "uncertainty"=c(10,24), "utility"=c(10,24), "better"=c(2, 12))
+ylabs <- c("flood" = ylabs_flood, "wind"= ylabs_wind)
+
+mean_wind <- c("worse"=140, "uncertainty"=140, "utility"=140, "better"=100)
+mean_flood <- c("worse"=16, "uncertainty"=16, "utility"= 16, "better"=8)
+means <- c("flood"=mean_flood, "wind"=mean_wind)
+
+perspectives <- c('self','roleplay','predict')
+model_order <- c(MIXTRAL, CHATGPT, FURBO, SONNET, OPUS)
+
+
+genEx2MainPlots <- function(dat, bel, pr){
+  # Loop though 4 conditions and 3 perspectives
+  ylab_flag = TRUE
+  dat <- subset(dat, prior == pr)
+  results <- list()
+  for(c in conditions){
+    for(p in perspectives){
+      print( paste0('model/',bel,pr,c,p))
+      if(bel == 'flood'){
+        temp_m <- brm(flood_2 ~ model*forced_decision, subset(dat, condition == c & perspective == p), file = paste0('model/',bel,pr,c,p))
+      }
+      if(bel == 'wind'){
+        temp_m <- brm(wind_2 ~ model*forced_decision, subset(dat, condition == c & perspective == p), file = paste0('model/',bel,pr,c,p))
+      }
+      title_text <- paste0(str_to_title(c),'-',str_to_title(p))
+      if(c == 'better'){
+        title_text <- paste0("Weaker",'-',str_to_title(p))
+      }  
+      
+      temp_g <- plot(conditional_effects(temp_m), plot=FALSE)$`model:forced_decision` + 
+        ggtitle(title_text) + ylim(ylabs[paste0(bel,'.',c,'1')], ylabs[paste0(bel,'.',c,'2')])
+      
+      temp_dat <- subset(dat, condition==c & perspective == p)
+      temp_g <- temp_g + geom_point(data=temp_dat, aes_string(x='model', y=paste0(bel,'_2'), color='forced_decision'), shape = 13, size = 2, inherit.aes = FALSE, position = position_jitter(h=0.0, w=0.2))
+      
+      #grab the y and the legend 
+      legend <- get_legend(
+          # create some space to the left of the legend
+          temp_g + theme(legend.position='bottom')
+      )
+      temp_g <- temp_g +  theme(axis.title.y=element_blank(), legend.position="none") + scale_x_discrete(limits = model_order) 
+      temp_g <- temp_g + scale_x_discrete(labels = c(MIXTRAL, CHATGPT, '4Turbo', SONNET, OPUS)) +  
+        geom_hline(yintercept= means[paste0(bel,'.',c)], linetype="dashed")
+
+      results <- c(results, list(temp_g))    
+    }
+  }
+  ## print plot here
+  pg <- plot_grid(plotlist = results, nrow = 4)
+  pg <- plot_grid(pg, legend, ncol = 1, rel_heights = c(1,.05))
+
+  return(pg)
+}
+
+temp_wind_w <- genEx2MainPlots(ex2_b1, 'wind', 'with')
+temp_flood_w <- genEx2MainPlots(ex2_b1, 'flood', 'with')
+temp_wind_wout <- genEx2MainPlots(ex2_b1, 'wind', 'without')
+temp_flood_wout <- genEx2MainPlots(ex2_b1, 'flood', 'without')
+
+```
+
+#### With Prior beliefs
+```{r echo=FALSE}
+temp <- temp_wind_w  + theme(plot.margin = margin(0, 0, -120, 20)) 
+temp <- add_sub(temp, "Wind Speed (mph)", -0.01, 3, angle=90)
+ggdraw(temp)
+
+temp <- temp_flood_w  + theme(plot.margin = margin(0, 0, -120, 20)) 
+temp <- add_sub(temp, "Flood depth (inch)", -0.01, 3, angle=90)
+ggdraw(temp)
+```
+
+#### Without prior beliefs
+```{r echo=FALSE}
+temp <- temp_wind_wout  + theme(plot.margin = margin(0, 0, -120, 20)) 
+temp <- add_sub(temp, "Wind Speed (mph)", -0.01, 3, angle=90)
+ggdraw(temp)
+
+temp <- temp_flood_wout  + theme(plot.margin = margin(0, 0, -120, 20)) 
+temp <- add_sub(temp, "Flood depth (inch)", -0.01, 3, angle=90)
+ggdraw(temp)
+```
+
+
+### Experiment 2 result: Table Hypothe testing
+```{r echo=FALSE}
+conditions <- c('worse','better','uncertainty','utility')
+perspectives <- c('self','roleplay','predict')
+model_order <- c(MIXTRAL, CHATGPT, FURBO, SONNET, OPUS)
+priors <- c('with', 'without')
+
+clean_hypo1 <- function(dat, bel, c, m, p, pr){
+  new_dat <- data.frame(
+    belief     = bel,
+    condition  = c,
+    model      = m,
+    perspective = p,
+    prior      = pr,
+    Estimate   = dat$Estimate,
+    SE         = dat$Est.Error,
+    Prob       = dat$Post.Prob,
+    Star       = dat$Star
+  )
+  return(new_dat)
+}
+
+genEx2MainHypo <- function(dat){
+  hypo <- data.frame()
+  
+  for(c in conditions){
+    for(p in perspectives){
+      for(pr in priors){
+        for(m in model_order){
+          temp_flood <- brm(flood_2 ~ forced_decision, 
+                            subset(dat, condition == c & perspective == p & model == m & prior == pr), 
+                            file = paste0('model/',m, 'flood',pr,c,p), iter = 8000, warmup = 4000)
+          temp_wind <- brm(wind_2 ~ forced_decision, 
+                           subset(dat, condition == c & perspective == p & model == m & prior == pr), 
+                           file = paste0('model/',m,'wind',pr,c,p), iter = 8000, warmup = 4000)
+          t_f <- data.frame(hypothesis(temp_flood, "forced_decisionStay < 0")$hypothesis)
+          t_w <- data.frame(hypothesis(temp_wind, "forced_decisionStay <0")$hypothesis)
+          hypo <- rbind(hypo, clean_hypo1(t_f, 'flood',c, m, p, pr))
+          hypo <- rbind(hypo, clean_hypo1(t_w, 'wind',c, m, p, pr))
+        }
+      }
+    }
+  }
+  return(hypo)
+}
+
+out <- genEx2MainHypo(ex2_b1)
+out$model <- ifelse(out$model == FURBO,'4Turbo',out$model)
+out$belief <- ifelse(out$belief=='flood','Flood Depth','Wind Speed')
+out$Estimate <- round(out$Estimate,3)
+out$SE <- round(out$SE,3)
+out$Prob <- round(out$Prob, 3)
+print(xtable(subset(out, out$prior =='with' & out$belief =='Flood Depth'), type = "latex"), file = "ex2_hypo1_with_flood.tex")
+print(xtable(subset(out, out$prior =='with' & out$belief =='Wind Speed'), type = "latex"), file = "ex2_hypo1_with_wind.tex")
+
+print(xtable(subset(out, out$prior =='without' & out$belief =='Flood Depth'), type = "latex"), file = "ex2_hypo1_without_flood.tex")
+print(xtable(subset(out, out$prior =='without' & out$belief =='Wind Speed'), type = "latex"), file = "ex2_hypo1_without_wind.tex")
+
+```
+
+```{r echo = FALSE}
+## Standard t-test
+count <- 0
+perspectives <- c("self","roleplay","predict")
+priors       <- c('with','without')
+models <- c(CHATGPT, FURBO, SONNET, OPUS, MIXTRAL)
+condition <- unique(ex2_b1$condition)
+for(p in perspectives){
+  for(pri in priors){
+    for(m in models){
+      for(c1 in condition){
+        for(c2 in condition){
+          if(c1 == c2) next
+          
+          print(c(p, pri, m, c1, c2))
+          temp_dat = subset(ex2_b1, model == m & perspective == p & prior == pri & (condition == c1 | condition == c2))
+          ## should not happen here 
+          if(sum(temp_dat$condition=='Easy') != sum(temp_dat$condition=='Hard')) { 
+            count <- count + 1
+            next
+          }
+        
+          print("---Flood---")
+          if(length(unique(subset(temp_dat, condition==c1)$flood_2))==1 | length(unique(subset(temp_dat, condition==c2)$flood_2))==1) next
+          
+          print(shapiro.test(temp_dat$flood_2))
+          print(bartlett.test(flood_2 ~ condition, data=temp_dat))
+         
+          print(t.test(flood_2 ~ condition, data = temp_dat, paired = TRUE)$p.value)
+          print(wilcox.test(flood_2 ~ condition, data= temp_dat, paired = TRUE)$p.value)
+          print("---Wind---")
+          if(length(unique(subset(temp_dat, condition==c1)$wind_2))==1 | length(unique(subset(temp_dat, condition==c2)$wind_2))==1) next
+          
+          print(shapiro.test(temp_dat$wind_2))
+          print(bartlett.test(wind_2 ~ condition, data=temp_dat))
+          
+          print(t.test(wind_2 ~ condition, data = temp_dat, paired = TRUE)$p.value)
+          print(wilcox.test(wind_2 ~ condition, data= temp_dat, paired = TRUE)$p.value)
+        }
+      }
+    }
+  }
+}
+print(count)
+
+```
+
+
+### Test the hypo across conditions: Worse vs utility and uncertainty. Stay only
+
+```{r echo=FALSE}
+conditions <- c('worse','better','uncertainty','utility')
+perspectives <- c('self','roleplay','predict')
+model_order <- c(MIXTRAL, CHATGPT, FURBO, SONNET, OPUS)
+priors <- c('with', 'without')
+
+ex2_b1_stay <- subset(ex2_b1, forced_decision == 'Stay' & condition != 'better')
+ex2_b1_stay$condition <- factor(ex2_b1_stay$condition, levels = c('worse','utility','uncertainty'))
+
+hypo2 <- data.frame()
+
+clean_hypo2 <- function(dat, bel, m, p, pr){
+  new_dat <- data.frame(
+    Hypothesis = ifelse(dat$Hypothesis == "(conditionutility) > 0",'Utility','Uncertainty'),
+    belief     = bel,
+    model      = m,
+    perspective = p,
+    prior      = pr,
+    Estimate   = dat$Estimate,
+    SE         = dat$Est.Error,
+    Prob       = dat$Post.Prob,
+    Star       = dat$Star
+  )
+  return(new_dat)
+}
+
+for(pr in priors){
+  for(p in perspectives){
+    for(m in model_order){
+      temp_flood <- brm(flood_2 ~ condition, subset(ex2_b1_stay, perspective == p & prior==pr & model==m),
+                        file = paste0('model/hypo2flood',m,pr,p))
+      temp_wind <- brm(wind_2 ~ condition, subset(ex2_b1_stay, perspective == p & prior==pr & model==m),
+                        file = paste0('model/hypo2wind',m,pr,p))
+      
+      hypo_flood_utility <- data.frame(hypothesis(temp_flood, "conditionutility > 0")$hypothesis)
+      hypo_flood_uncertainty <- data.frame(hypothesis(temp_flood, 'conditionuncertainty < 0')$hypothesis)
+      hypo_wind_utility <- data.frame(hypothesis(temp_wind, "conditionutility > 0")$hypothesis)
+      hypo_wind_uncertainty <- data.frame(hypothesis(temp_wind, 'conditionuncertainty < 0')$hypothesis)
+      
+      hypo2 <- rbind(hypo2, clean_hypo2(hypo_flood_utility, 'flood', m, p, pr))
+      hypo2 <- rbind(hypo2, clean_hypo2(hypo_flood_uncertainty, 'flood',m,p,pr))
+      hypo2 <- rbind(hypo2, clean_hypo2(hypo_wind_utility,'wind',m,p,pr))
+      hypo2 <- rbind(hypo2, clean_hypo2(hypo_wind_uncertainty,'wind',m,p,pr))
+    }
+  }
+}
+hypo2
+
+hypo2$belief <- ifelse(hypo2$belief == 'flood', 'Flood Depth','Wind Speed')
+hypo2$Estimate <- round(hypo2$Estimate, 3)
+hypo2$SE <- round(hypo2$SE, 3)
+hypo2$Prob <- round(hypo2$Prob, 3)
+hypo2$model <- ifelse(hypo2$model == FURBO,'4Turbo', hypo2$model)
+
+print(xtable(subset(hypo2, hypo2$prior =='with'), type = "latex"), file = "ex2_hypo2_with.tex")
+print(xtable(subset(hypo2, hypo2$prior =='without'), type = "latex"), file = "ex2_hypo2_without.tex")
+
+```
+
